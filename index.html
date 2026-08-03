@@ -3,46 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>MagicBook</title>
 
 <style>
 
 body{
 margin:0;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 background:#FFF9F3;
 color:#2D2A32;
 }
 
-.hero{
-height:100vh;
+.screen{
+min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+padding:30px;
 text-align:center;
-padding:20px;
+}
+
+.hidden{
+display:none;
 }
 
 h1{
 font-size:60px;
 color:#8B6DF3;
-margin-bottom:10px;
 }
 
-h2{
-font-weight:normal;
-max-width:600px;
-}
-
-.btn{
-margin-top:30px;
+button{
 background:#8B6DF3;
 color:white;
+border:none;
 padding:15px 30px;
-border-radius:15px;
-text-decoration:none;
+border-radius:12px;
 font-size:18px;
+cursor:pointer;
+margin-top:20px;
+}
+
+input, textarea{
+width:300px;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
 }
 
 </style>
@@ -50,21 +58,47 @@ font-size:18px;
 
 <body>
 
-<section class="hero">
+<div id="home" class="screen">
 
 <h1>✨ MagicBook</h1>
 
 <h2>
 Cada niño merece ser el héroe de su propia historia
 </h2>
- 
-<a>
-hero.html
-    Crear una aventura
-</a>
 
-</section>
+<button onclick="mostrarHeroe()">
+Crear una aventura
+</button>
+
+</div>
+
+<div id="hero" class="screen hidden">
+
+<h1>✨ Crear Héroe</h1>
+
+<input type="text" placeholder="Nombre">
+
+<input type="number" placeholder="Edad">
+
+<textarea placeholder="¿Qué le gusta?"></textarea>
+
+<textarea placeholder="¿Qué lo hace especial?"></textarea>
+
+<button onclick="alert('¡Próxima pantalla: Crear Historia!')">
+Continuar
+</button>
+
+</div>
+
+<script>
+
+function mostrarHeroe(){
+document.getElementById('home').classList.add('hidden');
+document.getElementById('hero').classList.remove('hidden');
+}
+
+</script>
 
 </body>
 </html>
-MagicBook landing page v1
+
